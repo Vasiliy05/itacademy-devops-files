@@ -12,12 +12,6 @@
       notify:
       - Restart sshd
 
-    - name: Change vagrant password
-      #become: yes
-      user:
-        name: vagrant
-        password: $1$5R1SZzGx$G8k7Xwi9gh56GOcYXfAdA0
-
   handlers:
     - name: Restart sshd
       #become: yes

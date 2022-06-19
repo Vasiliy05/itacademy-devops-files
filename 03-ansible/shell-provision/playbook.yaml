@@ -7,11 +7,11 @@
       debug:
         msg: "Hello, world!"
 
-    - name: Uninstall Apache
+    - name: Install Apache
       sudo: true
       apt:
         name: apache2
-        state: absent
+        state: present
 
     - name: Install Vim
       become: yes

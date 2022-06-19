@@ -11,6 +11,18 @@
         option: host_key_checking
         value: False
      
+    - name: Set alias ll
+      replace:
+        path: /home/vagrant/.bashrc
+        regexp: "^#alias ll='ls -l'$"
+        replace: "alias ll='ls -la'"
+    
+    - name: Set colors
+      replace:
+        path: /home/vagrant/.bashrc
+        regexp: "^#force_color_prompt=yes$"
+        replace: "force_color_prompt=yes"
+
     - name: install packages
       become: yes
       apt:
@@ -27,11 +39,11 @@
 
     - name: copy inventory
       copy:
-        src: /vagrant/inventory/hosts
-        dest: /home/vagrant/hosts
+        src: /vagrant/inventory
+        dest: /home/vagrant/inventory
 
     - name: execute playbook
-      shell: ansible-playbook -i /home/vagrant/hosts /home/vagrant/playbook.yaml | sed 's/\x1B\[[0-9;]\+[A-Za-z]//g'
+      shell: ansible-playbook -i /home/vagrant/inventory /home/vagrant/playbook.yaml | sed 's/\x1B\[[0-9;]\+[A-Za-z]//g'
       register: playbook_output
       changed_when: playbook_output.stdout_lines[-1] is regex("\schanged=[1-9]\d*\s")
 

@@ -1,6 +1,0 @@
-FROM ubuntu
-
-RUN apt-get update && apt-get install -y curl
-RUN curl http://google.com | wc -c >google-size
-
-ENTRYPOINT echo Google is this big; cat google-size
