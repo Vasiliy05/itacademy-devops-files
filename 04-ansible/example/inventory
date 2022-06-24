@@ -1,0 +1,12 @@
+
+; Обращаю внимание, что используются разные ключи для разных хостов
+node0	ansible_host=192.168.33.9  ansible_ssh_private_key_file=/home/vagrant/private_key_node0
+node1	ansible_host=192.168.33.10 ansible_ssh_private_key_file=/home/vagrant/private_key_node1
+
+; Здесь используем локальное подключение, т.к. на момент выполнения provision-а ключ для текущего сервера может ещё не существовать.
+node2	ansible_host=192.168.33.11 ansible_connection=local
+
+[all:vars]
+ansible_connection=ssh
+ansible_user=vagrant
+ansible_ssh_common_args='-o StrictHostKeyChecking=no'
