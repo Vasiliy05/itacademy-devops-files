@@ -53,6 +53,7 @@
 - [Ещё инструкция по GitHub](https://habr.com/ru/post/125799/)
 - [Как работать с GitLab](https://losst.ru/kak-polzovatsya-gitlab)
 - [Установка GitLab на Ubuntu](https://1cloud.ru/help/linux/ustanovka-gitlab-na-ubuntu)
+- [Сопоставляем неоднозначные термины в GitLab, GitHub и Bitbucket](https://habr.com/ru/company/softmart/blog/308422/)
 - [Vagrant образы](https://app.vagrantup.com/boxes/search)
 - [Документация](https://www.vagrantup.com/docs/)
 - [Примеры конфигураций](https://github.com/patrickdlee/vagrant-examples)
