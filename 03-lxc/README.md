@@ -99,4 +99,5 @@ lxc.net.0.link  = lxcbr0
 - `lxc-attach c1`
 - `lxc-autostart`
 - `lxc-autostart -a`
+- `lxc-autostart -s`
 
