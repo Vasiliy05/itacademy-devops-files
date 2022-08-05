@@ -1,0 +1,35 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant.configure("2") do |config|
+  config.vm.box = "generic/centos8"
+
+  config.vm.provider "virtualbox" do |vb|
+    vb.memory = 512
+    vb.cpus   = 1
+  end
+
+  config.vm.define "master.puppet", primary: true do |master|
+    master.vm.network "private_network", ip: "192.168.50.25"
+
+    master.vm.hostname = "master.puppet"
+    master.vm.provider("virtualbox") { |vb| vb.memory = 1024 }
+
+    master.vm.provision :shell, inline: <<-SHELL
+      yum install -y https://yum.puppet.com/puppet7-release-el-8.noarch.rpm
+      yum install -y vim mc
+      yum install -y --downloadonly puppetserver git
+    SHELL
+  end
+
+  config.vm.define "slave1.puppet" do |slave|
+    slave.vm.network "private_network", ip: "192.168.50.26"
+    slave.vm.hostname = "slave1.puppet"
+
+    slave.vm.provision :shell, inline: <<-SHELL
+      yum install -y https://yum.puppet.com/puppet7-release-el-8.noarch.rpm
+      yum install -y vim mc
+      yum install -y --downloadonly puppet-agent
+    SHELL
+  end
+end
