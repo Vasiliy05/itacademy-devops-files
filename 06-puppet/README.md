@@ -27,6 +27,7 @@
 # Полезные ссылки
 
 - [Инструкция по установке Puppet](https://puppet.com/docs/puppet/7/server/install_from_packages.html#install-puppet-server-from-packages)
+- [Зависимости между объектами](https://puppet.com/docs/puppet/7/lang_relationships.html)
  
 # Команды puppet
 - `sudo /opt/puppetlabs/puppet/bin/puppet agent -t`
@@ -35,6 +36,9 @@
 - `puppet config print`
 - `puppet config print modulepath --section server --environment test`
 - `r10k deploy environment -p`
+- `puppet resource service mysql`
+- `puppet parser validate site.pp`
+- `facter processors`
 
 # Пути puppet
 - `/opt/puppetlabs/bin`
