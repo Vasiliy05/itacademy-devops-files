@@ -1,0 +1,24 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant.configure("2") do |config|
+  config.vm.box = "debian/buster64"
+
+  config.vm.define "staging" do |host|
+    host.vm.network "private_network", ip: "192.168.33.80"
+
+    host.vm.provider("virtualbox"){ |vb| vb.memory = 256 }
+  end
+
+  config.vm.define "production" do |host|
+    host.vm.network "private_network", ip: "192.168.33.85"
+
+    host.vm.provider("virtualbox"){ |vb| vb.memory = 256 }
+  end
+
+  config.vm.provision "shell", inline: <<-SHELL
+    sed -i "s/^PasswordAuthentication no\$/PasswordAuthentication yes/g" /etc/ssh/sshd_config
+    service sshd restart
+    echo -e "vagrant\nvagrant" | passwd vagrant
+  SHELL
+end

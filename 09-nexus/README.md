@@ -50,3 +50,7 @@ fi
   - Создается отдельный пользователь для загрузки данных в репозиторий
   - Создается отдельный пользователь для скачивания данных из репозитория
 - На машинах staging.vm и production.vm создайте условия для установки и настройки службы word-cloud-generator
+
+# Полезные ссылки
+
+- [Nexus3 downloads](https://help.sonatype.com/repomanager3/product-information/download/download-archives---repository-manager-3)
