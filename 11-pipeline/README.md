@@ -14,7 +14,7 @@
 - [Официальный сайт](http://www.groovy-lang.org/)
 - [Groovy за 15 минут](https://habr.com/ru/post/122127/)
 - [Примеры кода на Groovy](https://mrhaki.blogspot.com/search/label/Groovy)
-- [Учебник Groov](https://ru.wikibooks.org/wiki/Groovy)
+- [Учебник Groovy](https://ru.wikibooks.org/wiki/Groovy)
 
 ### Pipeline
 
